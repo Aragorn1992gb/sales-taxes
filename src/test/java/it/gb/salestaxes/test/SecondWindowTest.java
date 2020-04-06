@@ -7,8 +7,6 @@ import java.util.ArrayList;
 
 import org.junit.*;
 
-import it.gb.salestaxes.bean.FootballBean;
-import it.gb.salestaxes.bean.WeatherBean;
 import it.gb.salestaxes.windows.SecondWindow;
 
 

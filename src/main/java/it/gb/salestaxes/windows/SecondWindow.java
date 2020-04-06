@@ -39,9 +39,7 @@ import javax.swing.table.TableModel;
 
 import org.apache.commons.csv.CSVRecord;
 
-import it.gb.salestaxes.bean.FootballBean;
 import it.gb.salestaxes.bean.ProductsBean;
-import it.gb.salestaxes.bean.WeatherBean;
 import it.gb.salestaxes.daoImpl.ProductsDAOImpl;
 import it.gb.salestaxes.util.ButtonColumn;
 import it.gb.salestaxes.util.GlobalStorage;
