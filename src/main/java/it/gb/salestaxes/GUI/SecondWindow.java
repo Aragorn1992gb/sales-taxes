@@ -1,4 +1,4 @@
-package it.gb.salestaxes.windows;
+package it.gb.salestaxes.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -83,12 +83,6 @@ public class SecondWindow extends JFrame {
 
 		// findProductsData() is the method that read data from products file and return
 		// a data list
-		
-	//	gs.generateProductList();
-		
-		System.out.println(gs.getProductslist());
-		ArrayList<ProductsBean> aaa = gs.getProductslist();
-		//gs.productsList = productsDAOImpl.findProductsData();
 
 		List<String> columns = settingHeaders(productsDAOImpl);
 
@@ -106,7 +100,6 @@ public class SecondWindow extends JFrame {
 		TableColumnModel columnModel = table.getColumnModel();
 		setColumnModel(columnModel);
 
-		// panel.setLayout(new BorderLayout());
 		JPanel tablePanel = new JPanel();
 		tablePanel.add(new JScrollPane(table), BorderLayout.CENTER);
 

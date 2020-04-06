@@ -7,11 +7,14 @@ import java.util.ArrayList;
 
 import org.junit.*;
 
-import it.gb.salestaxes.windows.SecondWindow;
+import it.gb.salestaxes.GUI.SecondWindow;
 
 
 public class SecondWindowTest {
-	SecondWindow secondWindow = new SecondWindow(); // Class tested
+	@Test
+	public void canSetData() throws Exception {
+		SecondWindow.productsWindow();
+	}
 	
 //    @Test
 //    public void getDayMinTR() {

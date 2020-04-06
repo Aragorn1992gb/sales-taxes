@@ -1,4 +1,4 @@
-package it.gb.salestaxes.windows;
+package it.gb.salestaxes.GUI;
 
 import java.awt.*;
 

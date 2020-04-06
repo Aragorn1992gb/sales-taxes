@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import it.gb.salestaxes.windows.SecondWindow;
+import it.gb.salestaxes.GUI.SecondWindow;
 
 public class UtilMethods {
 	static UtilConstants utilC = new UtilConstants();
