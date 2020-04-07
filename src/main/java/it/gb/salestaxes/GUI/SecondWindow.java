@@ -58,6 +58,9 @@ public class SecondWindow extends JFrame {
 	static ClassLoader classL = new SecondWindow().getClass().getClassLoader();
 	static ImageIcon icon = new ImageIcon(classL.getResource(utilC.CART_ICO));
 	
+	static ProductsDAOImpl productsDAOImpl = new ProductsDAOImpl();
+
+	
 	//static GlobalStorage gs = new GlobalStorage();
 	
 	static GlobalStorage gs = GlobalStorage.getInstance();
@@ -76,7 +79,6 @@ public class SecondWindow extends JFrame {
 
 		// ProductsDAOImpl contains method that acts on product data stored on a csv
 		// file
-		ProductsDAOImpl productsDAOImpl = new ProductsDAOImpl();
 		// ProductBean contains the characteristics of each rows in the csv file that
 		// can be set and get
 		// ArrayList<ProductsBean> productsList = new ArrayList();
@@ -84,10 +86,9 @@ public class SecondWindow extends JFrame {
 		// findProductsData() is the method that read data from products file and return
 		// a data list
 
-		List<String> columns = settingHeaders(productsDAOImpl);
+		List<String> columns = settingHeaders();
 
 		Object[][] data = settingData();
-
 
 		DefaultTableModel tableModel = utilM.generateTypeTableModel(data, columns, utilC.columnTypes, editableColumns);
 
@@ -186,7 +187,7 @@ public class SecondWindow extends JFrame {
 		return data;
 	}
 
-	private static List<String> settingHeaders(ProductsDAOImpl productsDAOImpl) {
+	private static List<String> settingHeaders() {
 		CSVRecord productHeaders = productsDAOImpl.findProductsHeaders();
 
 		List<String> columns = new ArrayList<String>();
@@ -201,13 +202,5 @@ public class SecondWindow extends JFrame {
 		return columns;
 	}
 
-	public static void sendTocart() throws Exception {
-
-		System.out.println("Nel carrello c'è: " + gs.productsList);
-
-		for (Integer prodId : gs.toCart)
-			System.out.println(prodId);
-
-	}
 	
 }
