@@ -28,12 +28,10 @@ public static void mainWindow()
 	// ListenerProxies class contains methods that allows to execute generics methods
 	ListenerProxies listenerP = new ListenerProxies();
 	JFrame frame = new JFrame("Menu");
-	// Each button has his own ActionListener that executes a specific method
+	// The button has his own ActionListener that executes a specific method
 	bProducts.addActionListener(listenerP.actionListener(utilM, "redirect", obj.getClass(), "productsWindow", frame));
-	//bEx2.addActionListener(listenerP.actionListener(utilM, "redirect", obj.getClass(), "eX2Window", frame));
 	JPanel bPanel = new JPanel();
 	bPanel.add(bProducts);
-	//bPanel.add(bEx2);
 	
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	Container containerPane = frame.getContentPane();

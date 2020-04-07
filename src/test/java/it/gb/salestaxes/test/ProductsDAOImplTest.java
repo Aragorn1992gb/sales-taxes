@@ -2,7 +2,7 @@ package it.gb.salestaxes.test;
 
 import static org.junit.Assert.assertNotNull;
 
-import org.junit.*;
+import org.junit.jupiter.api.Test;
 
 import it.gb.salestaxes.daoImpl.ProductsDAOImpl;
 

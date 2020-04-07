@@ -179,6 +179,8 @@ public class SecondWindow extends JFrame {
 			data[i][4] = productRow.getCurrency();
 			data[i][5] = icon;
 
+			gs.addToRowMapIdProd(i, productRow.getIdProd());
+
 			i++;
 		}
 		return data;

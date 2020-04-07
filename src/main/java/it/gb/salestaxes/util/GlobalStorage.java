@@ -1,6 +1,7 @@
 package it.gb.salestaxes.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import it.gb.salestaxes.bean.ProductsBean;
 import it.gb.salestaxes.daoImpl.ProductsDAOImpl;
@@ -8,17 +9,20 @@ import it.gb.salestaxes.daoImpl.ProductsDAOImpl;
 public class GlobalStorage {
 	static ProductsDAOImpl productsDAOImpl = new ProductsDAOImpl();
 	
-	// unic instance
+	// single instance
 	private static final GlobalStorage instance = new GlobalStorage();
 	public static final ArrayList<Integer> toCart = new ArrayList<>();
 	public static final ArrayList<ProductsBean> productsList = productsDAOImpl.findProductsData();
-	
+	public static final HashMap<Integer, Integer> rowMapIdprod = new HashMap<Integer,Integer>();
 
+
+	public static HashMap<Integer, Integer> getRowmapidprod() {
+		return rowMapIdprod;
+	}
 
 	public static ArrayList<Integer> getTocart() {
 		return toCart;
-	}
-	
+	}	
 
 	public static ArrayList<ProductsBean> getProductslist() {
 		return productsList;
@@ -39,11 +43,11 @@ public class GlobalStorage {
 	}
 	
 	public void removeFromCart(int idProd) {
-		toCart.remove(idProd);
+		toCart.remove(Integer.valueOf(idProd));
+	}
+	
+	public void addToRowMapIdProd(int keyRow, int valueIdProd) {
+		rowMapIdprod.put(keyRow, valueIdProd);
 	}
 
-//	public static void setProductsList(ArrayList<ProductsBean> productsList) {
-//		GlobalStorage.productsList = productsDAOImpl.findProductsData();
-//	}
-	
 }
