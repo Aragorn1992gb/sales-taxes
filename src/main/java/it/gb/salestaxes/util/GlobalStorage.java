@@ -14,8 +14,12 @@ public class GlobalStorage {
 	public static final ArrayList<Integer> toCart = new ArrayList<>();
 	public static final ArrayList<ProductsBean> productsList = productsDAOImpl.findProductsData();
 	public static final HashMap<Integer, Integer> rowMapIdprod = new HashMap<Integer,Integer>();
+	public static final HashMap<Integer, Integer> prodIdMapCounter = new HashMap<Integer,Integer>();
 
-
+	public static HashMap<Integer, Integer> getProdidmapcounter() {
+		return prodIdMapCounter;
+	}
+	
 	public static HashMap<Integer, Integer> getRowmapidprod() {
 		return rowMapIdprod;
 	}
@@ -48,6 +52,10 @@ public class GlobalStorage {
 	
 	public void addToRowMapIdProd(int keyRow, int valueIdProd) {
 		rowMapIdprod.put(keyRow, valueIdProd);
+	}
+	
+	public void addToProdIdMapCounter(int keyIdProd, int valueCounter) {
+		prodIdMapCounter.put(keyIdProd, valueCounter);
 	}
 
 }

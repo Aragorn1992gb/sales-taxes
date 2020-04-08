@@ -17,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
@@ -43,8 +45,11 @@ public class CartWindow {
 	static ImageIcon icon = new ImageIcon(classL.getResource(utilC.REMOVE_ICO));
 
 	public static void cartWindow() throws Exception {
+		
+		int unitsColumn = 7;
+		int cartColumn = 8;
 
-		int[] editableColumns = { 7, 8 };
+		int[] editableColumns = { unitsColumn, cartColumn };
 
 		for (Integer prodId : gs.toCart)
 			System.out.println(prodId);
@@ -75,12 +80,12 @@ public class CartWindow {
 		tablePanel.add(table.getTableHeader(), BorderLayout.NORTH);
 
 		JFrame frame = new JFrame("Your cart");
-
-		HashMap<Integer, Integer> procutsMap = groupProducts();
-
-		for (HashMap.Entry<Integer, Integer> val : procutsMap.entrySet()) {
-			System.out.println("Element " + val.getKey() + " " + "occurs" + ": " + val.getValue() + " times");
-		}
+//
+//		HashMap<Integer, Integer> procutsMap = groupProducts();
+//
+//		for (HashMap.Entry<Integer, Integer> val : procutsMap.entrySet()) {
+//			System.out.println("Element " + val.getKey() + " " + "occurs" + ": " + val.getValue() + " times");
+//		}
 
 		JButton bCart = new JButton("Pay");
 
@@ -110,7 +115,20 @@ public class CartWindow {
 			}
 		};
 
-		ButtonColumn buttonColumn = new ButtonColumn(table, addToCartClick, 8);
+		ButtonColumn buttonColumn = new ButtonColumn(table, addToCartClick, cartColumn);
+		
+		table.getModel().addTableModelListener(new TableModelListener() {
+
+
+			@Override
+			public void tableChanged(TableModelEvent e) {
+				String value = table.getValueAt(e.getFirstRow(), unitsColumn).toString();
+				gs.addToProdIdMapCounter(gs.getRowmapidprod().get(e.getFirstRow()), Integer.valueOf(value));
+				//gs.getProdidmapcounter().get(gs.getRowmapidprod().get(i));
+				//gs.addToRowMapIdProd(e.getFirstRow(), unitsColumn);
+			}
+		    });
+		
 		buttonColumn.setMnemonic(KeyEvent.VK_D);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -139,27 +157,30 @@ public class CartWindow {
 
 	private static Object[][] settingData() {
 		Object[][] data = new Object[gs.productsList.size()][utilC.columnTypesCart.size() + utilC.OTHER_COLUMNS_CART];
-		HashMap<Integer, Integer> procutsMap = groupProducts();
+		//HashMap<Integer, Integer> procutsMap = groupProducts();
+		
+	//	int a = gs.getProdidmapcounter().get(1);
 
-		int i = 0;
+		int i = 0, j=0;
 
 		for (ProductsBean productRow : gs.productsList) {
+			
+			if (gs.getProdidmapcounter().containsKey(productRow.getIdProd()) && gs.getProdidmapcounter().get(gs.getRowmapidprod().get(i)) != 0) {
+				data[j][0] = productRow.getName();
+				data[j][1] = productRow.getBrands();
+				data[j][2] = productRow.getGrams();
+				data[j][3] = productRow.getPrice();
+				data[j][4] = productRow.getCurrency();
+				data[j][5] = productRow.getDescription();
+				data[j][6] = productRow.getIngredients();
+				data[j][7] = gs.getProdidmapcounter().get(gs.getRowmapidprod().get(i));
+				data[j][8] = icon;
 
-			if (procutsMap.containsKey(productRow.getIdProd()-1)) {
-				data[i][0] = productRow.getName();
-				data[i][1] = productRow.getBrands();
-				data[i][2] = productRow.getGrams();
-				data[i][3] = productRow.getPrice();
-				data[i][4] = productRow.getCurrency();
-				data[i][5] = productRow.getDescription();
-				data[i][6] = productRow.getIngredients();
-				data[i][7] = procutsMap.get(productRow.getIdProd()-1);
-				data[i][8] = icon;
-
-				gs.addToRowMapIdProd(i, productRow.getIdProd());
-
-				i++;
+				gs.addToRowMapIdProd(j, productRow.getIdProd());
+				j++;
+				
 			}
+			i++;
 
 		}
 		return data;
@@ -183,14 +204,14 @@ public class CartWindow {
 		return columns;
 	}
 
-	private static HashMap<Integer, Integer> groupProducts() {
-		HashMap<Integer, Integer> counterProdMap = new HashMap<Integer, Integer>();
-
-		for (Integer i : gs.getTocart()) {
-			Integer j = counterProdMap.get(i);
-			counterProdMap.put(i, (j == null) ? 1 : j + 1);
-		}
-
-		return counterProdMap;
-	}
+//	private static HashMap<Integer, Integer> groupProducts() {
+//		HashMap<Integer, Integer> counterProdMap = new HashMap<Integer, Integer>();
+//
+//		for (Integer i : gs.getTocart()) {
+//			Integer j = counterProdMap.get(i);
+//			counterProdMap.put(i, (j == null) ? 1 : j + 1);
+//		}
+//
+//		return counterProdMap;
+//	}
 }
