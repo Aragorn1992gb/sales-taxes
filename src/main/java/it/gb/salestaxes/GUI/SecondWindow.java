@@ -124,27 +124,9 @@ public class SecondWindow extends JFrame {
 		bPanel.add(bBack);
 		
 
-		Action addToCartClick = new AbstractAction() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				int modelRow = Integer.valueOf(e.getActionCommand());
-		//		gs.toCart.add(modelRow);
-				HashMap<Integer,Integer> hm = new HashMap<Integer, Integer>();
-				int idProd = gs.getRowmapidprod().get(modelRow);
-				int counter = gs.getProdidmapcounter().get(idProd) == null ? 1 : gs.getProdidmapcounter().get(idProd)+1;
-				gs.addToProdIdMapCounter(idProd, counter);
-		//		hm.put(idProd,hm.get(idProd)+1);
-//				try {
-//					sendTocart();
-//				} catch (Exception ex) {
-//					// TODO Auto-generated catch block
-//					ex.printStackTrace();
-//				}
-			}
-		};
 
-		ButtonColumn buttonColumn = new ButtonColumn(table, addToCartClick, 5);
+		ButtonColumn buttonColumn = new ButtonColumn(table, utilM.addToCartClick, 5);
 		buttonColumn.setMnemonic(KeyEvent.VK_D);
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -207,5 +189,17 @@ public class SecondWindow extends JFrame {
 		return columns;
 	}
 
-	
+//	private static Action addToCartClick = new AbstractAction() {
+//
+//		@Override
+//		public void actionPerformed(ActionEvent e) {
+//			int modelRow = Integer.valueOf(e.getActionCommand());
+//
+//			HashMap<Integer,Integer> hm = new HashMap<Integer, Integer>();
+//			int idProd = gs.getRowmapidprod().get(modelRow);
+//			int counter = gs.getProdidmapcounter().get(idProd) == null ? 1 : gs.getProdidmapcounter().get(idProd)+1;
+//			gs.addToProdIdMapCounter(idProd, counter);
+//
+//		}
+//	};
 }

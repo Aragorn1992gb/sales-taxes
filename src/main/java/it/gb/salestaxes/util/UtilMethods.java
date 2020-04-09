@@ -8,14 +8,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.IntStream;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import it.gb.salestaxes.GUI.SecondWindow;
 
 public class UtilMethods {
 	static UtilConstants utilC = new UtilConstants();
+	static GlobalStorage gs = GlobalStorage.getInstance();
 
 	// Method used in order to redirect window to another window
 	public void redirect(ActionEvent event, Class windowClass, String MethodName, JFrame frameToClose)
@@ -52,4 +57,40 @@ public class UtilMethods {
 		};
 		return tableModel;
 	}
+	
+	public static Action addToCartClick = new AbstractAction() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			int modelRow = Integer.valueOf(e.getActionCommand());
+
+			int idProd = gs.getRowmapidprod().get(modelRow);
+			int counter = gs.getProdidmapcounter().get(idProd) == null ? 1 : gs.getProdidmapcounter().get(idProd)+1;
+			
+			int units = gs.getProductslist().get(idProd-1).getUnits();
+			if(counter<=units) {
+				gs.addToProdIdMapCounter(idProd, counter);
+			} else {
+				JOptionPane.showMessageDialog(null, "No other available units for chosen item");
+			}
+
+		} 
+	};
+	
+	
+	public static Action deleteItemClick = new AbstractAction() {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			JTable table = (JTable) e.getSource();
+			TableModel tableModel = table.getModel();
+	
+	//		tableModel.
+			int modelRow = Integer.valueOf(e.getActionCommand());
+			tableModel.setValueAt(0, modelRow, gs.getColumnElements());
+			int idProd = gs.getRowmapidprod().get(modelRow);
+			gs.addToProdIdMapCounter(idProd, 0);
+		}
+	};
+
 }

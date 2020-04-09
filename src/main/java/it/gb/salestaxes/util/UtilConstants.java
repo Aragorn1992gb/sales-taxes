@@ -10,7 +10,7 @@ public final class UtilConstants {
 	public static final char PRODUCTS_FILE_DELIMITER = ';';
 	
 	public static final String CART_ICO = "cart21.jpg";
-	public static final String REMOVE_ICO = "cart21.jpg";
+	public static final String REMOVE_ICO = "delete21.png";
 	
 	// mapping column to show with his type
 	public static HashMap<Integer, Class> columnTypes = new HashMap<Integer, Class>() {

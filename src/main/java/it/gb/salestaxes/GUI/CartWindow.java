@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -46,10 +47,12 @@ public class CartWindow {
 
 	public static void cartWindow() throws Exception {
 		
-		int unitsColumn = 7;
+		
+		gs.setColumnElements(7);
 		int cartColumn = 8;
 
-		int[] editableColumns = { unitsColumn, cartColumn };
+		int[] editableColumns = { gs.getColumnElements(), cartColumn };
+		
 
 		for (Integer prodId : gs.toCart)
 			System.out.println(prodId);
@@ -80,19 +83,13 @@ public class CartWindow {
 		tablePanel.add(table.getTableHeader(), BorderLayout.NORTH);
 
 		JFrame frame = new JFrame("Your cart");
-//
-//		HashMap<Integer, Integer> procutsMap = groupProducts();
-//
-//		for (HashMap.Entry<Integer, Integer> val : procutsMap.entrySet()) {
-//			System.out.println("Element " + val.getKey() + " " + "occurs" + ": " + val.getValue() + " times");
-//		}
 
-		JButton bCart = new JButton("Pay");
+		JButton bCheckout = new JButton("Checkout");
 
-		bCart.addActionListener(
+		bCheckout.addActionListener(
 				listenerP.actionListener(utilM, "redirect", objPayWindow.getClass(), "payWindow", frame));
-		JPanel bCartPanel = new JPanel();
-		bCartPanel.add(bCart);
+		JPanel bCheckoutPanel = new JPanel();
+		bCheckoutPanel.add(bCheckout);
 
 		JButton bBack = new JButton("BACK");
 
@@ -106,26 +103,30 @@ public class CartWindow {
 			public void actionPerformed(ActionEvent e) {
 				int modelRow = Integer.valueOf(e.getActionCommand());
 				gs.toCart.add(modelRow);
-//				try {
-//					sendTocart();
-//				} catch (Exception ex) {
-//					// TODO Auto-generated catch block
-//					ex.printStackTrace();
-//				}
 			}
 		};
 
-		ButtonColumn buttonColumn = new ButtonColumn(table, addToCartClick, cartColumn);
+		ButtonColumn buttonColumn = new ButtonColumn(table, utilM.deleteItemClick, cartColumn);
 		
 		table.getModel().addTableModelListener(new TableModelListener() {
 
-
 			@Override
 			public void tableChanged(TableModelEvent e) {
-				String value = table.getValueAt(e.getFirstRow(), unitsColumn).toString();
-				gs.addToProdIdMapCounter(gs.getRowmapidprod().get(e.getFirstRow()), Integer.valueOf(value));
-				//gs.getProdidmapcounter().get(gs.getRowmapidprod().get(i));
-				//gs.addToRowMapIdProd(e.getFirstRow(), unitsColumn);
+				int row = e.getFirstRow();
+				int idProd = gs.getRowmapidprod().get(row);
+				int units = gs.getProductslist().get(idProd-1).getUnits();
+				int oldValue = gs.getProdidmapcounter().get(idProd);
+				String currentValue = table.getValueAt(row, gs.getColumnElements()).toString();
+				int intValue = Integer.valueOf(currentValue);
+				
+				if(intValue<=units) {
+					gs.addToProdIdMapCounter(idProd, intValue);
+				} else {
+					tableModel.setValueAt(oldValue, row, e.getColumn());
+					JOptionPane.showMessageDialog(null, "Units chosen are unavailable for this item");
+					
+				}
+				
 			}
 		    });
 		
@@ -135,7 +136,7 @@ public class CartWindow {
 		Container containerPane = frame.getContentPane();
 		containerPane.add(panel, BorderLayout.NORTH);
 		containerPane.add(tablePanel, BorderLayout.CENTER);
-		containerPane.add(bCartPanel, BorderLayout.WEST);
+		containerPane.add(bCheckoutPanel, BorderLayout.WEST);
 		containerPane.add(bPanel, BorderLayout.SOUTH);
 
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
