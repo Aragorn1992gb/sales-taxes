@@ -11,10 +11,10 @@ public class GlobalStorage {
 	
 	// single instance
 	private static final GlobalStorage instance = new GlobalStorage();
-	public static final ArrayList<Integer> toCart = new ArrayList<>();
-	public static final ArrayList<ProductsBean> productsList = productsDAOImpl.findProductsData();
-	public static final HashMap<Integer, Integer> rowMapIdprod = new HashMap<Integer,Integer>();
-	public static final HashMap<Integer, Integer> prodIdMapCounter = new HashMap<Integer,Integer>();
+	private static final ArrayList<Integer> toCart = new ArrayList<>();
+	private static final ArrayList<ProductsBean> productsList = productsDAOImpl.findProductsData();
+	private static final HashMap<Integer, Integer> rowMapIdprod = new HashMap<Integer,Integer>();
+	private static final HashMap<Integer, Integer> prodIdMapCounter = new HashMap<Integer,Integer>();
 	private static int columnElements = 0;
 
 	public static HashMap<Integer, Integer> getProdidmapcounter() {
@@ -68,5 +68,7 @@ public class GlobalStorage {
 		prodIdMapCounter.put(keyIdProd, valueCounter);
 	}
 	
-
+	public void removeFromProdIdMapCounter(int key) {
+		prodIdMapCounter.remove(key);
+	}
 }

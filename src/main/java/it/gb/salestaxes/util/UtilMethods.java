@@ -89,7 +89,8 @@ public class UtilMethods {
 			int modelRow = Integer.valueOf(e.getActionCommand());
 			tableModel.setValueAt(0, modelRow, gs.getColumnElements());
 			int idProd = gs.getRowmapidprod().get(modelRow);
-			gs.addToProdIdMapCounter(idProd, 0);
+			gs.removeFromProdIdMapCounter(idProd);
+		//	gs.addToProdIdMapCounter(idProd, 0);
 		}
 	};
 

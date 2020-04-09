@@ -154,11 +154,11 @@ public class SecondWindow extends JFrame {
 	}
 
 	private static Object[][] settingData() {
-		Object[][] data = new Object[gs.productsList.size()][utilC.columnTypes.size() + utilC.OTHER_COLUMNS];
+		Object[][] data = new Object[gs.getProductslist().size()][utilC.columnTypes.size() + utilC.OTHER_COLUMNS];
 
 		int i = 0;
 
-		for (ProductsBean productRow : gs.productsList) {
+		for (ProductsBean productRow : gs.getProductslist()) {
 
 			data[i][0] = productRow.getName();
 			data[i][1] = productRow.getBrands();

@@ -2,6 +2,7 @@ package it.gb.salestaxes.GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -54,7 +55,7 @@ public class CartWindow {
 		int[] editableColumns = { gs.getColumnElements(), cartColumn };
 		
 
-		for (Integer prodId : gs.toCart)
+		for (Integer prodId : gs.getTocart())
 			System.out.println(prodId);
 
 		JPanel panel = new JPanel();
@@ -69,9 +70,11 @@ public class CartWindow {
 				editableColumns);
 
 		JTable table = new JTable(tableModel);
-
-		table.setPreferredScrollableViewportSize(table.getPreferredSize());
-
+		
+		//table.setPreferredScrollableViewportSize(table.getPreferredSize());
+		table.setPreferredScrollableViewportSize(new Dimension(1000, 1000));
+	//	table.setSize(100, 100);
+		
 		table.setRowHeight(30);
 
 		TableColumnModel columnModel = table.getColumnModel();
@@ -102,7 +105,7 @@ public class CartWindow {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int modelRow = Integer.valueOf(e.getActionCommand());
-				gs.toCart.add(modelRow);
+				gs.addToCart(modelRow);
 			}
 		};
 
@@ -124,7 +127,6 @@ public class CartWindow {
 				} else {
 					tableModel.setValueAt(oldValue, row, e.getColumn());
 					JOptionPane.showMessageDialog(null, "Units chosen are unavailable for this item");
-					
 				}
 				
 			}
@@ -157,14 +159,14 @@ public class CartWindow {
 	}
 
 	private static Object[][] settingData() {
-		Object[][] data = new Object[gs.productsList.size()][utilC.columnTypesCart.size() + utilC.OTHER_COLUMNS_CART];
+		Object[][] data = new Object[gs.getProdidmapcounter().size()][utilC.columnTypesCart.size() + utilC.OTHER_COLUMNS_CART];
 		//HashMap<Integer, Integer> procutsMap = groupProducts();
 		
 	//	int a = gs.getProdidmapcounter().get(1);
 
 		int i = 0, j=0;
 
-		for (ProductsBean productRow : gs.productsList) {
+		for (ProductsBean productRow : gs.getProductslist()) {
 			
 			if (gs.getProdidmapcounter().containsKey(productRow.getIdProd()) && gs.getProdidmapcounter().get(gs.getRowmapidprod().get(i)) != 0) {
 				data[j][0] = productRow.getName();
