@@ -1,31 +1,31 @@
-IdProd;Name;Price;Currency;Category;Gender;Description;Ingredients;Brand;Units;Grams
-1;Chocolate bar;1,2;Euro;Food;Desserts;Chocolate bar. 80% cocoa;Cocoa, milk, water;Lindt;10000;100
-2;Choco Ice Cream;3;Euro;Food;Desserts;Chocolate ice cream 60% cocoa;Cocoa, milk, water;Algida;54521;280
-3;Choco Ice Cream;2,5;Euro;Food;Desserts;Chocolate ice cream 55% cocoa;Cocoa, milk, water;Penny;214525;350
-4;Norvegian Salmon;5;Euro;Food;Seafood;Bred Norvegian Salmon;Salmon, salt;The Icelander;2545;100
-5;Smoked Norvegian Salmon;6;Euro;Food;Seafood;Smoked bred Norvegian Salmon;Smoked salmon, salt;The Icelander;245452;100
-6;Smoked Salmon;7;Euro;Food;Seafood;Smoked bred Scottish Salmon;Smoked salmon, salt;Labeyrie;453453;100
-7;Fusilli;1,2;Euro;Food;Pasta;Italian fusilli pasta;Wheat, water, salt;Barilla;443253;500
-8;Spaghetti;1,2;Euro;Food;Pasta;Classic italian pasta;Wheat, water, salt;Barilla;456245;500
-9;Spaghetti;0,6;Euro;Food;Pasta;Classic made in sud spaghetti;Wheat, water, salt;Divella;4534;500
-10;Dracula;15;Euro;Book;Horror;The most famous book of Bram Stoker;;deAgostini;15425;
-11;Sherlock Holmes;12;Euro;Book;Crime;The most famous book of Agatha Christie. Sherlock Holmes is a detective;;Bompiani;4525;
-12;The lord of the rings, the trilogy;50;Euro;Book;Epic;The masterpiece of J. R. R. Tolkien including The fellowship of the ring, The two towers, The return of the king;;Bompiani;1246556;
-13;Anna Karenina;10;Euro;Book;Novel;Lev Tolstoj. Any fan of stories that involve juicy subjects like adultery, gambling, marriage plots, and, well, Russian feudalism, would instantly place Anna Karenina at the peak of their greatest novels list;;deAgostini;455556;
-14;Augmentin;5;Euro;Medical;Antibiotic;Augmentin 875 mg / 125 mg powder for oral suspension in sachet;Colloidal silicon dioxide, hypromellose, magnesium stearate, microcrystalline cellulose, polyethylene glycol, sodium starch glycolate, and titanium dioxide. Each tablet of AUGMENTIN contains 0.63 mEq potassium.;Augmentin;4522;
-15;Veclam;4;Euro;Medical;Antibiotic;Veclam 125 mg / 5 ml granules for oral suspension is indicated in children from 6 months to 12 years of age;Clarithromycin;Malesci;455522;
-16;Oki;5;Euro;Medical;Anti-inflammatory;Oki belongs to the category of non-steroidal anti-inflammatory and antirheumatic products belonging to the class of propionic acid derivatives;Ketoprofen lysine (a derivative of Ketoprofen);Domp;55452;
-17;Aspirina;4;Euro;Medical;Anti-inflammatory;Aspirin with the active ingredient acetyl salicylic acid is an anticoagulant anti-inflammatory called ASA belongs to the family of salicylates;Acetylsalicylic acid;Bayer;452555;
-18;Voltaren;8;Euro;Medical;Anti-inflammatory;Non-steroidal anti-inflammatory and antirheumatic product.;Diclofenac;Voltaren;565205;
-19;Fenistil gel;12;Euro;Medical;Antihistamine;Local symptomatic treatment of itchy dermatitis, sunburn, insect bites;The active substance is dimethindene maleate. 1ml of solution contains 1 mg of dimethindene maleate.;Fenistil;45623;
-20;Clarityn;7;Euro;Medical;Antihistamine;Medicinal product indicated for the symptomatic treatment of allergic rhinitis and chronic idiopathic urticaria;10mg of Loratadine as the active ingredient. Other ingredients : Hydrous Lactose, Maize Starch, Magnesium Stearate. The active ingredient in Clarityn Allergy is Loratadine;Clarityn;45245;
-21;Beatles Abbey Road;10;Euro;Music;CD;Abbey Road is the latest studio album recorded by the Beatles;;;455422;
-22;Robbie Williams Intensive Care;12;Euro;Music;CD;Intensive Care is the sixth studio album by British pop singer Robbie Williams released on October 24, 2005 in the United Kingdom.;;;45623546;
-23;Green Day Dookie;20;Euro;Music;Vynil;Dookie is the third studio album of the American musical group Green Day, released on February 1, 1994 by Reprise Records;;;456;
-24;Electric Guitar Fender Stratocaster;250;Euro;Music;Instrument;An electric guitar is a guitar that uses one or more pickups to convert the vibration of its strings into electrical signals;;Fender;456;
-25;Desktop PC Acer Aspire C24;800;Euro;Electronics;Computer;"A slim 24 ""all-in-one computer with the latest generation Intel CPU for a unique computing experience";;Acer;56545;
-26;Asus notebook Rog Zephirus;1700;Euro;Electronics;Notebook;"G GA502DU-AL039T Monitor 15,6"" Full HD AMD Ryzen 7 3750H Ram 16 GB SSD 512 GB Nvidia GeForce GTX 1660 Ti 6 GB 1xUSB 3.1 3xUSB 3.0 Windows 10 Home";;Asus;4562;
-27;Samsung TV UE65RU7170UXZT;800;Euro;Electronics;TV;SMART TV LED 65'' 4K;;Samsung;45255;
-28;Gaming keyboard  Royal Kludge RK61;100;Euro;Electronics;Keyboard;Wired Dual Mode 60% RGB Mechanical - white;;Royal Kludge;4522;
-29;Samunsung Galaxy SM-A505 Galaxy A50 Black;330;Euro;Electronics;Smartphone;Band switchboards - 4G-LTE - Wi-Fi - NFC - A-GPS Rear camera: 25 Megapixel - Android 9 Pie Processor: 8-Core 2.3 GHz - Internal memory: 128 GB RAM: 4 GB - 6.4 '' Super AMOLED display Distributed by SAMSUNG Italy;;Samsung;45632;
-30;Apple iPhone Xr 64GB Black;750;Euro;Electronics;Smartphone;Penta Band - 4G - Wi-Fi - NFC - A-GPS 12 Megapixel rear camera - 4K video 6.1 '' Super Retina HD display - Memory: 64 GB IOS12 Operating System A12 Bionic processor - Multi-Touch - Wireless charging Face recognition via the TrueDepth camera Distributed by Apple Italy;;Apple;4563;
+IdProd;Name;Price;Currency;Category;Gender;Description;Ingredients;Brand;Units;Grams;CountryProd
+1;Chocolate bar;1,2;Euro;Food;Desserts;Chocolate bar. 80% cocoa;Cocoa, milk, water;Lindt;10000;100;Switzerland
+2;Choco Ice Cream;3;Euro;Food;Desserts;Chocolate ice cream 60% cocoa;Cocoa, milk, water;Algida;54521;280;Italy
+3;Choco Ice Cream;2,5;Euro;Food;Desserts;Chocolate ice cream 55% cocoa;Cocoa, milk, water;Penny;214525;350;Germany
+4;Norvegian Salmon;5;Euro;Food;Seafood;Bred Norvegian Salmon;Salmon, salt;The Icelander;2545;100;Norway
+5;Smoked Norvegian Salmon;6;Euro;Food;Seafood;Smoked bred Norvegian Salmon;Smoked salmon, salt;The Icelander;245452;100;Norway
+6;Smoked Salmon;7;Euro;Food;Seafood;Smoked bred Scottish Salmon;Smoked salmon, salt;Labeyrie;453453;100;Scotland
+7;Fusilli;1,2;Euro;Food;Pasta;Italian fusilli pasta;Wheat, water, salt;Barilla;443253;500;Italy
+8;Spaghetti;1,2;Euro;Food;Pasta;Classic italian pasta;Wheat, water, salt;Barilla;456245;500;Italy
+9;Spaghetti;0,6;Euro;Food;Pasta;Classic made in sud spaghetti;Wheat, water, salt;Divella;4534;500;Italy
+10;Dracula;15;Euro;Book;Horror;The most famous book of Bram Stoker;;deAgostini;15425;;England
+11;Sherlock Holmes;12;Euro;Book;Crime;The most famous book of Agatha Christie. Sherlock Holmes is a detective;;Bompiani;4525;;England
+12;The lord of the rings, the trilogy;50;Euro;Book;Epic;The masterpiece of J. R. R. Tolkien including The fellowship of the ring, The two towers, The return of the king;;Bompiani;1246556;;England
+13;Anna Karenina;10;Euro;Book;Novel;Lev Tolstoj. Any fan of stories that involve juicy subjects like adultery, gambling, marriage plots, and, well, Russian feudalism, would instantly place Anna Karenina at the peak of their greatest novels list;;deAgostini;455556;;Germany
+14;Augmentin;5;Euro;Medical;Antibiotic;Augmentin 875 mg / 125 mg powder for oral suspension in sachet;Colloidal silicon dioxide, hypromellose, magnesium stearate, microcrystalline cellulose, polyethylene glycol, sodium starch glycolate, and titanium dioxide. Each tablet of AUGMENTIN contains 0.63 mEq potassium.;Augmentin;4522;;Italy
+15;Veclam;4;Euro;Medical;Antibiotic;Veclam 125 mg / 5 ml granules for oral suspension is indicated in children from 6 months to 12 years of age;Clarithromycin;Malesci;455522;;Italy
+16;Oki;5;Euro;Medical;Anti-inflammatory;Oki belongs to the category of non-steroidal anti-inflammatory and antirheumatic products belonging to the class of propionic acid derivatives;Ketoprofen lysine (a derivative of Ketoprofen);Domp;55452;;Italy
+17;Aspirina;4;Euro;Medical;Anti-inflammatory;Aspirin with the active ingredient acetyl salicylic acid is an anticoagulant anti-inflammatory called ASA belongs to the family of salicylates;Acetylsalicylic acid;Bayer;452555;;Italy
+18;Voltaren;8;Euro;Medical;Anti-inflammatory;Non-steroidal anti-inflammatory and antirheumatic product.;Diclofenac;Voltaren;565205;;England
+19;Fenistil gel;12;Euro;Medical;Antihistamine;Local symptomatic treatment of itchy dermatitis, sunburn, insect bites;The active substance is dimethindene maleate. 1ml of solution contains 1 mg of dimethindene maleate.;Fenistil;45623;;Italy
+20;Clarityn;7;Euro;Medical;Antihistamine;Medicinal product indicated for the symptomatic treatment of allergic rhinitis and chronic idiopathic urticaria;10mg of Loratadine as the active ingredient. Other ingredients : Hydrous Lactose, Maize Starch, Magnesium Stearate. The active ingredient in Clarityn Allergy is Loratadine;Clarityn;45245;;England
+21;Beatles Abbey Road;10;Euro;Music;CD;Abbey Road is the latest studio album recorded by the Beatles;;;455422;;England
+22;Robbie Williams Intensive Care;12;Euro;Music;CD;Intensive Care is the sixth studio album by British pop singer Robbie Williams released on October 24, 2005 in the United Kingdom.;;;45623546;;England
+23;Green Day Dookie;20;Euro;Music;Vynil;Dookie is the third studio album of the American musical group Green Day, released on February 1, 1994 by Reprise Records;;;456;;USA
+24;Electric Guitar Fender Stratocaster;250;Euro;Music;Instrument;An electric guitar is a guitar that uses one or more pickups to convert the vibration of its strings into electrical signals;;Fender;456;;USA
+25;Desktop PC Acer Aspire C24;800;Euro;Electronics;Computer;"A slim 24 ""all-in-one computer with the latest generation Intel CPU for a unique computing experience";;Acer;56545;;Japan
+26;Asus notebook Rog Zephirus;1700;Euro;Electronics;Notebook;"G GA502DU-AL039T Monitor 15,6"" Full HD AMD Ryzen 7 3750H Ram 16 GB SSD 512 GB Nvidia GeForce GTX 1660 Ti 6 GB 1xUSB 3.1 3xUSB 3.0 Windows 10 Home";;Asus;4562;;Japan
+27;Samsung TV UE65RU7170UXZT;800;Euro;Electronics;TV;SMART TV LED 65'' 4K;;Samsung;45255;;South Korea
+28;Gaming keyboard  Royal Kludge RK61;100;Euro;Electronics;Keyboard;Wired Dual Mode 60% RGB Mechanical - white;;Royal Kludge;4522;;China
+29;Samunsung Galaxy SM-A505 Galaxy A50 Black;330;Euro;Electronics;Smartphone;Band switchboards - 4G-LTE - Wi-Fi - NFC - A-GPS Rear camera: 25 Megapixel - Android 9 Pie Processor: 8-Core 2.3 GHz - Internal memory: 128 GB RAM: 4 GB - 6.4 '' Super AMOLED display Distributed by SAMSUNG Italy;;Samsung;45632;;South Korea
+30;Apple iPhone Xr 64GB Black;750;Euro;Electronics;Smartphone;Penta Band - 4G - Wi-Fi - NFC - A-GPS 12 Megapixel rear camera - 4K video 6.1 '' Super Retina HD display - Memory: 64 GB IOS12 Operating System A12 Bionic processor - Multi-Touch - Wireless charging Face recognition via the TrueDepth camera Distributed by Apple Italy;;Apple;4563;;USA

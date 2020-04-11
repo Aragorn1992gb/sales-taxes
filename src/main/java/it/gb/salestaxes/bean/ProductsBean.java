@@ -3,7 +3,7 @@ package it.gb.salestaxes.bean;
 public class ProductsBean {
 	private int idProd;
 	private String name;
-	private float price;
+	private double price;
 	private String currency;
 	private String category;
 	private String gender;
@@ -12,6 +12,14 @@ public class ProductsBean {
 	private String brands;
 	private int units;
 	private Integer grams;
+	private String countryProd;
+	
+	public String getCountryProd() {
+		return countryProd;
+	}
+	public void setCountryProd(String countryProd) {
+		this.countryProd = countryProd;
+	}
 	public int getIdProd() {
 		return idProd;
 	}
@@ -24,10 +32,10 @@ public class ProductsBean {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public float getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public String getCurrency() {

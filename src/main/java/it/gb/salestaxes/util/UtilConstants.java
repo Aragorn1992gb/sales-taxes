@@ -11,6 +11,9 @@ public final class UtilConstants {
 	
 	public static final String CART_ICO = "cart21.jpg";
 	public static final String REMOVE_ICO = "delete21.png";
+	public static final String DESCRIPTION_ICO = "lente21.png";
+	
+	public static final String NATION = "Italy";
 	
 	// mapping column to show with his type
 	public static HashMap<Integer, Class> columnTypes = new HashMap<Integer, Class>() {
@@ -18,7 +21,7 @@ public final class UtilConstants {
 			put(0,String.class);
 			put(1,String.class);
 			put(2,Integer.class);
-			put(3,Float.class);
+			put(3,Double.class);
 			put(4,String.class);
 			put(5,ImageIcon.class);
 		}
@@ -32,13 +35,25 @@ public final class UtilConstants {
 		{
 			put(0,String.class);
 			put(1,String.class);
-			put(2,Integer.class);
-			put(3,Float.class);
+			put(2,String.class);
+			put(3,Integer.class);
 			put(4,String.class);
-			put(5,String.class);
-			put(6,String.class);
-			put(7,Integer.class);
+			put(5,Integer.class);
+			put(6,Double.class);
+			put(7,String.class);
 			put(8,ImageIcon.class);
+			put(9,ImageIcon.class);
+		}
+	};
+	
+	// mapping column to show with his type
+	public static HashMap<Integer, Class> columnTypesCheckout = new HashMap<Integer, Class>() {
+		{
+			put(0,String.class);
+			put(1,Double.class);
+			put(2,String.class);
+			put(3,String.class);
+			put(4,String.class);
 		}
 	};
 	

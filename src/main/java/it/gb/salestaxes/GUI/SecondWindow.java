@@ -163,7 +163,7 @@ public class SecondWindow extends JFrame {
 			data[i][0] = productRow.getName();
 			data[i][1] = productRow.getBrands();
 			data[i][2] = productRow.getGrams();
-			data[i][3] = productRow.getPrice();
+			data[i][3] = productsDAOImpl.getTaxedPrice(productRow);
 			data[i][4] = productRow.getCurrency();
 			data[i][5] = icon;
 

@@ -78,20 +78,20 @@ public class UtilMethods {
 	};
 	
 	
-	public static Action deleteItemClick = new AbstractAction() {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JTable table = (JTable) e.getSource();
-			TableModel tableModel = table.getModel();
-	
-	//		tableModel.
-			int modelRow = Integer.valueOf(e.getActionCommand());
-			tableModel.setValueAt(0, modelRow, gs.getColumnElements());
-			int idProd = gs.getRowmapidprod().get(modelRow);
-			gs.removeFromProdIdMapCounter(idProd);
-		//	gs.addToProdIdMapCounter(idProd, 0);
-		}
-	};
+//	public static Action deleteItemClick = new AbstractAction() {
+//
+//		@Override
+//		public void actionPerformed(ActionEvent e) {
+//			JTable table = (JTable) e.getSource();
+//			TableModel tableModel = table.getModel();
+//	
+//	//		tableModel.
+//			int modelRow = Integer.valueOf(e.getActionCommand());
+//			tableModel.setValueAt(0, modelRow, gs.getColumnElements());
+//			int idProd = gs.getRowmapidprod().get(modelRow);	
+//			gs.removeFromProdIdMapCounter(idProd);
+//		//	gs.addToProdIdMapCounter(idProd, 0);
+//		}
+//	};
 
 }
