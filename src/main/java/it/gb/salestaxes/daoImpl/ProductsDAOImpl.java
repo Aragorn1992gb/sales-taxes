@@ -117,6 +117,7 @@ public class ProductsDAOImpl implements ProductsDAO{
 		return null;
 	}
 	
+	@Override
 	public double getTaxedPrice(ProductsBean product) {
 		
 		double initialPrice = product.getPrice();
@@ -129,6 +130,17 @@ public class ProductsDAOImpl implements ProductsDAO{
 		}
 		
 		return  Math.round(taxedPrice*100.0)/100.0;
+	}
+	
+	@Override
+	public double getTotalCalculation(ArrayList<ProductsBean> productsList) {
+		double total = 0;
+		
+		for(ProductsBean product : productsList) {
+			total = total + getTaxedPrice(product)*gs.getProdidmapcounter().get(product.getIdProd());
+		}
+		
+		return total;
 	}
 
 }
