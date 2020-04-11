@@ -46,12 +46,12 @@ public class GlobalStorageTest {
 		System.out.println("@Test can get product list elements number");
 	}
 	
-	@Test
-	public void canRemoveFromCart() {
-		gs.removeFromCart(idItemToAdd);
-		assertEquals(gs.getTocart().size(), startingSize-1);
-		System.out.println("@Test can remove an element of toChar array");
-	}
+//	@Test
+//	public void canRemoveFromCart() {
+//		gs.removeFromCart(idItemToAdd);
+//		assertEquals(gs.getTocart().size(), startingSize-1);
+//		System.out.println("@Test can remove an element of toChar array");
+//	}
 	
 	@Test
 	public void canCheckRowMapIdProd() {

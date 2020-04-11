@@ -39,13 +39,14 @@ public class CheckoutWindow {
 	
 	public static void checkoutWindow() {
 		int[] editableColumns = { };
-
+		gs.generateProductsCheckoutist();
+//		ArrayList<ProductsBean> sadsad = gs.getProductscheckoutlist();
 		
 		JPanel panel = new JPanel();
 		panel.setLayout(new BorderLayout());
 		panel.add(new JLabel("Checkout"), BorderLayout.NORTH);
 		
-		ArrayList<ProductsBean> a = gs.getProductslist();
+//		ArrayList<ProductsBean> a = gs.getProductslist();
 		List<String> columns = settingHeaders();
 		Object[][] data = settingData();
 		
@@ -60,6 +61,9 @@ public class CheckoutWindow {
 		setColumnModel(columnModel);
 		
 		JLabel totalLabel = new JLabel();
+//		
+		String totalLabelText = "TOTAL: "+productsDAOImpl.getTotalCalculation(gs.getProductscheckoutlist());
+		totalLabel.setText(totalLabelText);
 		
 
 		JPanel tablePanel = new JPanel();
@@ -73,8 +77,9 @@ public class CheckoutWindow {
 		
 		bPay.addActionListener(
 				listenerP.actionListener(utilM, "redirect", objPayWindow.getClass(), "checkoutWindow", frame));
-		JPanel bPayPanel = new JPanel();
+		JPanel lTotalPanel = new JPanel();
 		panel.add(bPay, BorderLayout.WEST);
+		lTotalPanel.add(totalLabel, BorderLayout.SOUTH);
 		
 		JButton bBack = new JButton("BACK");
 		
@@ -87,6 +92,7 @@ public class CheckoutWindow {
 		containerPane.add(panel, BorderLayout.NORTH);
 		containerPane.add(tablePanel, BorderLayout.CENTER);
 		containerPane.add(bPanel, BorderLayout.SOUTH);
+		containerPane.add(lTotalPanel, BorderLayout.WEST);
 
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
@@ -121,7 +127,7 @@ public class CheckoutWindow {
 
 		int i = 0, j = 0;
 
-		for (ProductsBean productRow : gs.getProductslist()) {
+		for (ProductsBean productRow : gs.getProductscheckoutlist()) {
 
 			if (gs.getProdidmapcounter().containsKey(productRow.getIdProd())
 					&& gs.getProdidmapcounter().get(gs.getRowmapidprod().get(i)) != 0) {

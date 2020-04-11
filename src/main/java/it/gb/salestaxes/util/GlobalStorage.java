@@ -16,6 +16,11 @@ public class GlobalStorage {
 	private static final GlobalStorage instance = new GlobalStorage();
 	private static final ArrayList<Integer> toCart = new ArrayList<>();
 	private static final ArrayList<ProductsBean> productsList = productsDAOImpl.findProductsData();
+	private static final ArrayList<ProductsBean> productsCheckoutList = new ArrayList<ProductsBean>();
+	public static ArrayList<ProductsBean> getProductscheckoutlist() {
+		return productsCheckoutList;
+	}
+
 	private static final HashMap<Integer, Integer> rowMapIdprod = new HashMap<Integer,Integer>();
 	private static final HashMap<Integer, Integer> prodIdMapCounter = new HashMap<Integer,Integer>();
 	private static int columnElements = 0;
@@ -60,9 +65,9 @@ public class GlobalStorage {
 		toCart.add(idProd);
 	}
 	
-	public void removeFromCart(int idProd) {
-		toCart.remove(Integer.valueOf(idProd));
-	}
+//	public void removeFromCart(int idProd) {
+//		toCart.remove(Integer.valueOf(idProd));
+//	}
 	
 	public void addToRowMapIdProd(int keyRow, int valueIdProd) {
 		rowMapIdprod.put(keyRow, valueIdProd);
@@ -74,8 +79,8 @@ public class GlobalStorage {
 	
 	public void removeFromProdIdMapCounter(int key) {
 		prodIdMapCounter.remove(key);
+		//productsCheckoutList.remove(getRowmapidprod().get(key));
 		//rowMapIdprod.remove(key);
-		System.out.println("ciao");
 		//shiftRow(key);
 	}
 	
@@ -107,5 +112,22 @@ public class GlobalStorage {
 	        }
 	    }
 		return null;
+	}
+	
+	public void generateProductsCheckoutist(){
+		productsCheckoutList.clear();
+		Iterator<Entry<Integer,Integer>> itRowMapIdprod = rowMapIdprod.entrySet().iterator();
+		//HashMap<Integer, Integer> rowMapId = getRowmapidprod();
+		Integer entryKey = null;
+		while (itRowMapIdprod.hasNext()) {
+			ProductsBean product = new ProductsBean();
+			entryKey = itRowMapIdprod.next().getKey();
+			product = getProductById(rowMapIdprod.get(entryKey));
+			productsCheckoutList.add(product);
+		}
+	}
+	
+	public void addToProductsCheckoutList(ProductsBean product) {
+		productsCheckoutList.add(product);
 	}
 }

@@ -5,6 +5,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.AbstractAction;
@@ -147,6 +148,8 @@ public class CartWindow {
 		ButtonColumn buttonColumn = new ButtonColumn(table, deleteItemClick, cartColumn);
 //		buttonColumn.setMnemonic(KeyEvent.VK_D);
 
+		HashMap<Integer, Integer> asda = gs.getRowmapidprod();
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container containerPane = frame.getContentPane();
 		containerPane.add(panel, BorderLayout.NORTH);
@@ -203,6 +206,10 @@ public class CartWindow {
 			i++;
 
 		}
+		for(;j<gs.getProductslist().size();j++) {
+			gs.removeFromRowMapIdprod(j);
+		}
+		
 		return data;
 	}
 

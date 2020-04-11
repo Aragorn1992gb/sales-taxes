@@ -70,6 +70,9 @@ public class UtilMethods {
 			int units = gs.getProductslist().get(idProd-1).getUnits();
 			if(counter<=units) {
 				gs.addToProdIdMapCounter(idProd, counter);
+//				if (counter ==1){
+//					gs.addToProductsCheckoutList(gs.getProductById(idProd));
+//				}
 			} else {
 				JOptionPane.showMessageDialog(null, "No other available units for chosen item");
 			}

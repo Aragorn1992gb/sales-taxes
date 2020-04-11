@@ -27,7 +27,7 @@ import it.gb.salestaxes.util.UtilConstants;
 public class ProductsDAOImpl implements ProductsDAO{
 	UtilConstants utilConsts = new UtilConstants();
 	static GlobalStorage gs = GlobalStorage.getInstance();
-	//private static DecimalFormat df = new DecimalFormat("0.00");
+	private static DecimalFormat df = new DecimalFormat("#.00");
 	private static final int CATEGORY_TAX_PERCENTAGE = 10;
 	private static final int IMPORT_DUTY_PERCENTAGE = 5;
 
@@ -58,7 +58,7 @@ public class ProductsDAOImpl implements ProductsDAO{
     				prodObj.setName(csvRecord.get(1));
     				
     				NumberFormat nf = NumberFormat.getInstance(Locale.ITALIAN); // Looks like a US format
-    				double d = nf.parse(csvRecord.get(2)).floatValue();
+    				double d = nf.parse(csvRecord.get(2)).doubleValue();
     				prodObj.setPrice(d);
     				
     				prodObj.setCurrency(csvRecord.get(3));
@@ -129,6 +129,8 @@ public class ProductsDAOImpl implements ProductsDAO{
 			taxedPrice = taxedPrice + (initialPrice*IMPORT_DUTY_PERCENTAGE)/100;
 		}
 		
+//		String strDouble = String.format("%.2f", 1.23456);
+//		return  Double.parseDouble(df.format(taxedPrice));
 		return  Math.round(taxedPrice*100.0)/100.0;
 	}
 	
