@@ -19,26 +19,26 @@ public class GlobalStorageTest {
 	static int idItemToAdd = 5;
 	int listSize = 30;
 	// get size of getToChart array after @BeforeAll
-	int startingSize = gs.getTocart().size();
-
-	@BeforeAll
-	public static void initialize() {
-		gs.addToCart(idItemToAdd);
-		gs.addToRowMapIdProd(1, productsList.get(0).getIdProd());
-		System.out.println("@BeforeEach initializing");
-	}
-	
-	@Test
-	public void canAddToCart() {
-		assertEquals(gs.getTocart().size(), startingSize);
-		System.out.println("@Test that something is added to cart");
-	}
-	
-	@Test
-	public void canReadCart() {
-		assertTrue(gs.getTocart().contains(idItemToAdd));
-		System.out.println("@Test verify that cart contains added product id");
-	}
+//	int startingSize = gs.getTocart().size();
+//
+//	@BeforeAll
+//	public static void initialize() {
+//		gs.addToCart(idItemToAdd);
+//		gs.addToRowMapIdProd(1, productsList.get(0).getIdProd());
+//		System.out.println("@BeforeEach initializing");
+//	}
+//	
+//	@Test
+//	public void canAddToCart() {
+//		assertEquals(gs.getTocart().size(), startingSize);
+//		System.out.println("@Test that something is added to cart");
+//	}
+//	
+//	@Test
+//	public void canReadCart() {
+//		assertTrue(gs.getTocart().contains(idItemToAdd));
+//		System.out.println("@Test verify that cart contains added product id");
+//	}
 	
 	@Test
 	public void canCheckProductsListElements() {

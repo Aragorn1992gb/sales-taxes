@@ -194,7 +194,7 @@ public class CartWindow {
 				data[j][3] = productRow.getGrams();
 				data[j][4] = productRow.getDescription();
 				data[j][5] = gs.getProdidmapcounter().get(gs.getRowmapidprod().get(i));
-				data[j][6] = productRow.getPrice();
+				data[j][6] = productsDAOImpl.getTaxedPrice(productRow);
 				data[j][7] = productRow.getCurrency();
 				data[j][8] = iconDelete;
 				data[j][9] = iconDescription;

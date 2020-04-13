@@ -15,6 +15,9 @@ public final class UtilConstants {
 	
 	public static final String NATION = "Italy";
 	
+	public static final String OK = "Your order has confirmed";
+	public static final String KO = "There are some problems with your order. Please try again";
+	
 	// mapping column to show with his type
 	public static HashMap<Integer, Class> columnTypes = new HashMap<Integer, Class>() {
 		{

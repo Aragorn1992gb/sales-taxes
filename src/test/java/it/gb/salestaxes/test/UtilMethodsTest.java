@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.Event;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,6 +57,10 @@ public class UtilMethodsTest {
 		System.out.println("@Test that check the column type");
 	}
 	
+//	@Test
+//	public void canprintReceipt() throws IOException {
+//		UtilMethods.printReceipt("Yuio");
+//	}
 //	@Test
 //	public void canPutToCart() {
 //		int units = gs.getProductslist().get(1).getUnits();

@@ -70,6 +70,7 @@ public class SecondWindow extends JFrame {
 	public static void productsWindow() throws Exception {
 	//	GlobalStorage gs = new GlobalStorage();
 	//	gs = new GlobalStorage();
+		gs.initializeProductList();
 		
 		int[] editableColumns = { 5 };
 		
