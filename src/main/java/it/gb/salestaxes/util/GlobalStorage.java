@@ -1,7 +1,6 @@
 package it.gb.salestaxes.util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -15,7 +14,6 @@ public class GlobalStorage {
 
 	// single instance
 	private static final GlobalStorage instance = new GlobalStorage();
-//	private static final ArrayList<Integer> toCart = new ArrayList<>();
 	private static final ArrayList<ProductsBean> productsList = new ArrayList<ProductsBean>();
 	private static final ArrayList<ProductsBean> productsCheckoutList = new ArrayList<ProductsBean>();
 
@@ -28,8 +26,6 @@ public class GlobalStorage {
 	private static int columnElements = 0;
 
 	private static List<String> lines = new ArrayList<String>();
-	// private static Iterator<Entry<Integer,Integer>> itRowMapIdprod =
-	// rowMapIdprod.entrySet().iterator();
 
 	public static List<String> getLines() {
 		return lines;
@@ -55,10 +51,6 @@ public class GlobalStorage {
 		return rowMapIdprod;
 	}
 
-//	public static ArrayList<Integer> getTocart() {
-//		return toCart;
-//	}	
-
 	public static ArrayList<ProductsBean> getProductslist() {
 		return productsList;
 	}
@@ -72,15 +64,6 @@ public class GlobalStorage {
 		return instance;
 	}
 
-	// additive methods
-//	public void addToCart(int idProd) {
-//		toCart.add(idProd);
-//	}
-
-//	public void removeFromCart(int idProd) {
-//		toCart.remove(Integer.valueOf(idProd));
-//	}
-
 	public void addToRowMapIdProd(int keyRow, int valueIdProd) {
 		rowMapIdprod.put(keyRow, valueIdProd);
 	}
@@ -91,9 +74,6 @@ public class GlobalStorage {
 
 	public void removeFromProdIdMapCounter(int key) {
 		prodIdMapCounter.remove(key);
-		// productsCheckoutList.remove(getRowmapidprod().get(key));
-		// rowMapIdprod.remove(key);
-		// shiftRow(key);
 	}
 
 	public Boolean containsKeyProdIdMapCounter(int key) {
@@ -111,7 +91,6 @@ public class GlobalStorage {
 			entryKey = itRowMapIdprod.next().getKey();
 			if (entryKey > removedRow) {
 				rowMapIdprod.put(entryKey - 1, rowMapIdprod.get(entryKey));
-				// rowMapIdprod.remove(entryKey);
 			}
 		}
 		rowMapIdprod.remove(entryKey);
@@ -129,7 +108,6 @@ public class GlobalStorage {
 	public void generateProductsCheckoutist() {
 		productsCheckoutList.clear();
 		Iterator<Entry<Integer, Integer>> itRowMapIdprod = rowMapIdprod.entrySet().iterator();
-		// HashMap<Integer, Integer> rowMapId = getRowmapidprod();
 		Integer entryKey = null;
 		while (itRowMapIdprod.hasNext()) {
 			ProductsBean product = new ProductsBean();
@@ -167,6 +145,5 @@ public class GlobalStorage {
 			productsList.add((ProductsBean) itProductsNewList.next());
 		}
 
-		// productsList = productsDAOImpl.findProductsData();
 	}
 }

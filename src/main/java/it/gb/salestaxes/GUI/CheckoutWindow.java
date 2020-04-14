@@ -3,14 +3,13 @@ package it.gb.salestaxes.GUI;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.io.File;
-import java.io.IOException;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -33,8 +32,7 @@ public class CheckoutWindow {
 	static ProductsDAOImpl productsDAOImpl = new ProductsDAOImpl();
 	static ListenerProxies listenerP = new ListenerProxies();
 	static UtilMethods utilM = new UtilMethods();
-	static UtilConstants utilC = new UtilConstants();
-	static Object objMainWindow = new MainWindow();
+	static Object objHome = new MainWindow();
 	static Object objPayWindow = new ReceiptWindow();
 
 	static ClassLoader classL = new CartWindow().getClass().getClassLoader();
@@ -53,26 +51,36 @@ public class CheckoutWindow {
 			for (ProductsBean prod : productsList) {
 				if (prod.getIdProd() == idProd) {
 					gs.updateUnits(i, prod.getUnits() - counterItems);
-					// productsList.get(i).setUnits(prod.getUnits() - counterItems);
 					break;
 				}
 				i++;
 			}
 		}
 
-		// System.out.println("ciao");
-
-//		ArrayList<ProductsBean> sadsad = gs.getProductscheckoutlist();
-
 		JPanel panel = new JPanel();
-		panel.setLayout(new BorderLayout());
-		panel.add(new JLabel("Checkout"), BorderLayout.NORTH);
+		GridBagLayout layout = new GridBagLayout();
 
-//		ArrayList<ProductsBean> a = gs.getProductslist();
+		panel.setLayout(layout);
+		GridBagConstraints gbc = new GridBagConstraints();
+
+		JLabel labelCheckout = new JLabel("Checkout");
+		labelCheckout.setFont(UtilConstants.FONT_TITLE);
+		gbc.fill = GridBagConstraints.VERTICAL;
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.ipady = 0;
+		panel.add(labelCheckout, gbc);
+
+		JLabel labelSpace = new JLabel("");
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.ipady = 100;
+		panel.add(labelSpace, gbc);
+
 		List<String> columns = settingHeaders();
 		Object[][] data = settingData();
 
-		tableModel = utilM.generateTypeTableModel(data, columns, utilC.columnTypesCart, editableColumns);
+		tableModel = utilM.generateTypeTableModel(data, columns, UtilConstants.columnTypesCart, editableColumns);
 
 		JTable table = new JTable(tableModel);
 		table.setPreferredScrollableViewportSize(new Dimension(1000, 500));
@@ -114,39 +122,54 @@ public class CheckoutWindow {
 		String totalLabelText = "TOTAL: " + productsDAOImpl.getTotalCalculation(gs.getProductscheckoutlist());
 		totalLabel.setText(totalLabelText);
 
-		JPanel tablePanel = new JPanel();
-		tablePanel.add(new JScrollPane(table), BorderLayout.CENTER);
+		gbc.gridx = 0;
+		gbc.gridy = 2;
+		gbc.ipady = 0;
+		gbc.weightx = 100;
+		panel.add(new JScrollPane(table), gbc);
 
-		tablePanel.add(table.getTableHeader(), BorderLayout.NORTH);
+		gbc.gridx = 0;
+		gbc.gridy = 3;
+		gbc.ipady = 0;
+		gbc.weightx = 100;
+		panel.add(table.getTableHeader(), gbc);
 
 		JFrame frame = new JFrame("Checkout");
 
 		JButton bPay = new JButton("Pay");
+		gbc.fill = GridBagConstraints.VERTICAL;
+		gbc.gridx = 1;
+		gbc.gridy = 3;
+		gbc.ipady = 20;
+		gbc.weightx = 100;
+		panel.add(bPay, gbc);
 
 		bPay.addActionListener(
 				listenerP.actionListener(utilM, "redirect", objPayWindow.getClass(), "receiptWindow", frame));
-		JPanel lTotalPanel = new JPanel();
-		panel.add(bPay, BorderLayout.WEST);
-		lTotalPanel.add(totalLabel, BorderLayout.SOUTH);
+		
+		JLabel labelSpace2 = new JLabel("");
+		gbc.gridx = 1;
+		gbc.gridy = 4;
+		gbc.ipady = 20;
+		panel.add(labelSpace2, gbc);
 
-		JButton bBack = new JButton("BACK");
+		JButton bBack = new JButton("CANCEL");
+		gbc.fill = GridBagConstraints.VERTICAL;
+		gbc.gridx = 1;
+		gbc.gridy = 5;
+		gbc.ipady = 0;
+		gbc.weightx = 100;
+		panel.add(bBack, gbc);
 
-		bBack.addActionListener(
-				listenerP.actionListener(utilM, "redirect", objMainWindow.getClass(), "mainWindow", frame));
-		JPanel bPanel = new JPanel();
-		bPanel.add(bBack);
+		bBack.addActionListener(listenerP.actionListener(utilM, "redirect", objHome.getClass(), "mainWindow", frame));
 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container containerPane = frame.getContentPane();
 		containerPane.add(panel, BorderLayout.NORTH);
-		containerPane.add(tablePanel, BorderLayout.CENTER);
-		containerPane.add(bPanel, BorderLayout.SOUTH);
-		containerPane.add(lTotalPanel, BorderLayout.WEST);
 
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 
-		// frame.setPreferredSize(new Dimension(400, 300));
 		frame.pack();
 		frame.setVisible(true);
 
@@ -171,7 +194,7 @@ public class CheckoutWindow {
 	}
 
 	private static Object[][] settingData() {
-		Object[][] data = new Object[gs.getProdidmapcounter().size()][utilC.columnTypesCart.size()];
+		Object[][] data = new Object[gs.getProdidmapcounter().size()][UtilConstants.columnTypesCart.size()];
 
 		int i = 0, j = 0;
 
